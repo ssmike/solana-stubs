@@ -1,4 +1,9 @@
 #[unsafe(no_mangle)]
+pub unsafe fn sol_log_(_dst: *mut u8, _src: *const u8, _n: u64) -> u64 {
+    0
+}
+
+#[unsafe(no_mangle)]
 pub unsafe fn sol_memcpy_(dst: *mut u8, src: *const u8, n: u64) -> u64 {
     for i in 0..n {
         *dst.offset(i as isize) = *src.offset(i as isize);
@@ -21,4 +26,8 @@ pub unsafe fn sol_memcmp_(s1: *const u8, s2: *const u8, n: u64, result: *mut i32
     *result = cmpresult;
 
     0
+}
+
+#[unsafe(no_mangle)]
+pub unsafe fn entrypoint(_argc: usize) {
 }
